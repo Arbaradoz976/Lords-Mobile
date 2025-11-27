@@ -24,3 +24,50 @@ body {
   color: var(--foreground);
   font-family: var(--font-sans), Arial, Helvetica, sans-serif;
 }
+
+@layer components {
+
+  /* Carte générique façon Lords Mobile */
+  .lm-card {
+    @apply relative overflow-hidden rounded-2xl border border-amber-400/30 bg-slate-950/80 shadow-xl;
+    @apply ring-1 ring-emerald-500/20;
+  }
+
+  .lm-card-header {
+    @apply relative h-40 w-full overflow-hidden;
+  }
+
+  .lm-card-header-glow {
+    background: radial-gradient(circle at top, rgba(251, 191, 36, 0.6), transparent 55%);
+  }
+
+  .lm-card-body {
+    @apply flex flex-col gap-1 p-3;
+  }
+
+  /* Ligne de petits badges (catégorie, niveau…) */
+  .lm-badges {
+    @apply absolute left-2 top-2 flex gap-2 text-[10px] z-10;
+  }
+
+  .lm-badge {
+    @apply rounded-full bg-black/60 px-2 py-0.5 uppercase tracking-wide text-slate-100;
+  }
+
+  .lm-badge-primary {
+    @apply bg-emerald-500/80 text-slate-950;
+  }
+
+  /* Icônes de héros sous forme de petits boucliers */
+  .lm-hero-row {
+    @apply mt-2 flex flex-wrap gap-2;
+  }
+
+  .lm-hero-icon {
+    @apply h-11 w-11 overflow-hidden rounded-xl border border-amber-300/70 bg-slate-900/90 shadow-md;
+  }
+
+  .lm-hero-icon img {
+    @apply h-full w-full object-cover;
+  }
+}

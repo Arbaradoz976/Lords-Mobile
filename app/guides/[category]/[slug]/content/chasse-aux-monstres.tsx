@@ -1,4 +1,5 @@
 // app/guides/[category]/[slug]/content/chasse-aux-monstres.tsx
+import Image from 'next/image';
 
 export function ChasseAuxMonstresContent() {
     return (
@@ -71,7 +72,7 @@ export function ChasseAuxMonstresContent() {
 
             <h2>Héros F2P recommandés pour la chasse</h2>
             <p>
-                Le jeu recommande un noyau de héros gratuits très efficaces pour la chasse
+                Le jeu recommande un noyau de  héros gratuits très efficaces pour la chasse
                 aux monstres. Ils combinent bons dégâts, utilitaires et soins.
             </p>
 
@@ -123,6 +124,100 @@ export function ChasseAuxMonstresContent() {
                 Adapte toujours en fonction de ton niveau de héros (rang, grade, niveau
                 d&apos;équipement).
             </p>
+
+            <h2>Exemple : Reine des Abeilles</h2>
+
+            <section className="mt-8 not-prose rounded-2xl border border-emerald-500/30 bg-slate-950/80 p-6 shadow-xl">
+                <div className="flex flex-col gap-4 md:flex-row md:items-center">
+                    {/* Monstre Image */}
+                    <div className="relative mx-auto h-40 w-40 flex-shrink-0 md:mx-0">
+                        <div className="absolute inset-0 flex items-center justify-center text-amber-500 text-7xl">
+                            🐝
+                        </div>
+                        {/* Quand l'image sera disponible:
+                        <Image
+                            src="/monsters/reine-des-abeilles.png"
+                            alt="Reine des Abeilles"
+                            fill
+                            className="object-contain drop-shadow-[0_0_25px_rgba(251,191,36,0.8)]"
+                        />
+                        */}
+                    </div>
+
+                    {/* Infos + héros conseillés */}
+                    <div className="flex-1">
+                        <h3 className="text-xl font-bold text-amber-300 mb-2">
+                            Reine des Abeilles
+                        </h3>
+                        <p className="text-sm text-slate-200 mb-3">
+                            Monstre plutôt orienté anti-magique. Utilise une équipe F2P basée sur
+                            des DPS physiques pour maximiser tes dégâts.
+                        </p>
+
+                        <p className="text-xs font-semibold text-slate-300 uppercase tracking-wide mb-2">
+                            Héros conseillés (F2P)
+                        </p>
+
+                        <div className="lm-hero-row">
+                            <div className="lm-hero-icon flex items-center justify-center text-amber-400 text-2xl">
+                                ⚔️
+                                {/* Quand les images seront disponibles:
+                                <Image
+                                    src="/heroes/tueur-de-demons.png"
+                                    alt="Tueur de Démons"
+                                    width={44}
+                                    height={44}
+                                />
+                                */}
+                            </div>
+                            <div className="lm-hero-icon flex items-center justify-center text-purple-400 text-2xl">
+                                ⚡
+                                {/* 
+                                <Image
+                                    src="/heroes/eclaire-pourpre.png"
+                                    alt="Éclair Pourpre"
+                                    width={44}
+                                    height={44}
+                                />
+                                */}
+                            </div>
+                            <div className="lm-hero-icon flex items-center justify-center text-green-400 text-2xl">
+                                🗡️
+                                {/*
+                                <Image
+                                    src="/heroes/roublard.png"
+                                    alt="Le Roublard"
+                                    width={44}
+                                    height={44}
+                                />
+                                */}
+                            </div>
+                            <div className="lm-hero-icon flex items-center justify-center text-red-400 text-2xl">
+                                🏹
+                                {/*
+                                <Image
+                                    src="/heroes/traqueuse.png"
+                                    alt="Traqueuse"
+                                    width={44}
+                                    height={44}
+                                />
+                                */}
+                            </div>
+                            <div className="lm-hero-icon flex items-center justify-center text-blue-400 text-2xl">
+                                🦅
+                                {/*
+                                <Image
+                                    src="/heroes/oiseau-noir.png"
+                                    alt="Oiseau Noir"
+                                    width={44}
+                                    height={44}
+                                />
+                                */}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
 
             <h2>Compositions F2P conseillées par monstre</h2>
             <p>
