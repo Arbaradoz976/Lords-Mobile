@@ -3,6 +3,7 @@ import { notFound } from 'next/navigation';
 import Image from 'next/image';
 import type { GuideCategory } from '@/data/guides';
 import { guides } from '@/data/guides';
+import { ChasseAuxMonstresContent } from './content/chasse-aux-monstres';
 
 type Params = {
     category: GuideCategory;
@@ -53,34 +54,38 @@ export default async function GuideDetailPage({ params }: { params: Promise<Para
                     src={guide.illustration}
                     alt={guide.titre}
                     fill
-                    className="object-cover opacity-0" // Hide for now
+                    className="object-cover opacity-0"
                 />
             </div>
 
-            {/* TODO: Remplacer ce contenu par ton vrai texte plus tard */}
-            <article className="prose prose-invert max-w-none prose-headings:text-slate-50 prose-p:text-slate-200 prose-li:text-slate-200">
-                <h2>Introduction</h2>
-                <p>
-                    Ce guide est actuellement en version brouillon. Le texte détaillé
-                    sera remplacé plus tard par le contenu fourni par l&apos;auteur du
-                    site.
-                </p>
+            {/* Guide Content - Conditional rendering based on slug */}
+            {guide.slug === 'chasse-aux-monstres' ? (
+                <ChasseAuxMonstresContent />
+            ) : (
+                <article className="prose prose-invert max-w-none prose-headings:text-slate-50 prose-p:text-slate-200 prose-li:text-slate-200">
+                    <h2>Introduction</h2>
+                    <p>
+                        Ce guide est actuellement en version brouillon. Le texte détaillé
+                        sera remplacé plus tard par le contenu fourni par l&apos;auteur du
+                        site.
+                    </p>
 
-                <h2>Résumé des points abordés</h2>
-                <ul>
-                    <li>Concepts clés liés au thème du guide.</li>
-                    <li>Conseils pratiques pour les joueurs de Lords Mobile.</li>
-                    <li>Erreurs courantes à éviter.</li>
-                </ul>
+                    <h2>Résumé des points abordés</h2>
+                    <ul>
+                        <li>Concepts clés liés au thème du guide.</li>
+                        <li>Conseils pratiques pour les joueurs de Lords Mobile.</li>
+                        <li>Erreurs courantes à éviter.</li>
+                    </ul>
 
-                <h2>Contenu à venir</h2>
-                <p>
-                    Tu pourras ici structurer ton guide avec des sections (H2/H3), des
-                    listes, des tableaux (ex : comparatif d&apos;équipements, de héros,
-                    etc.). Pour l&apos;instant, cette page sert de squelette pour mettre
-                    en place la navigation.
-                </p>
-            </article>
+                    <h2>Contenu à venir</h2>
+                    <p>
+                        Tu pourras ici structurer ton guide avec des sections (H2/H3), des
+                        listes, des tableaux (ex : comparatif d&apos;équipements, de héros,
+                        etc.). Pour l&apos;instant, cette page sert de squelette pour mettre
+                        en place la navigation.
+                    </p>
+                </article>
+            )}
         </main>
     );
 }
