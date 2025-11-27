@@ -1,143 +1,159 @@
+// data/guides.ts
 export type GuideCategory = 'tuto' | 'evenements';
 export type GuideLevel = 'Débutant' | 'Intermédiaire' | 'Avancé';
 
-export interface Guide {
-    slug: string;
-    title: string;
+export type Guide = {
+    id: string;
     category: GuideCategory;
-    level: GuideLevel;
-    summary: string;
-    readTime: string;
-    imageUrl: string;
-}
+    slug: string;
+    titre: string;
+    resume: string;
+    niveau: GuideLevel;
+    illustration: string; // chemin vers une image dans /public/images/...
+};
 
-export const GUIDES: Guide[] = [
-    // Tutos
+export const guides: Guide[] = [
+    // --------- TUTO ----------
     {
+        id: 'chasse-aux-monstres',
+        category: 'tuto',
         slug: 'chasse-aux-monstres',
-        title: 'Chasse aux monstres',
-        category: 'tuto',
-        level: 'Débutant',
-        summary: 'Apprenez les bases de la chasse aux monstres pour maximiser vos récompenses.',
-        readTime: '5 min',
-        imageUrl: '/images/placeholder-hero.png',
+        titre: 'Chasse aux monstres',
+        resume:
+            "Comprendre l’énergie, les niveaux de monstres et quelles équipes utiliser pour rentabiliser chaque frappe.",
+        niveau: 'Débutant',
+        illustration: '/images/guides/chasse-monstres.png',
     },
     {
-        slug: 'talents',
-        title: 'Talents (Paix vs Combat)',
+        id: 'talents-paix-combat',
         category: 'tuto',
-        level: 'Débutant',
-        summary: 'Comment configurer vos talents pour la croissance ou la guerre.',
-        readTime: '4 min',
-        imageUrl: '/images/placeholder-hero.png',
+        slug: 'talents-paix-combat',
+        titre: 'Talents – mode Paix et Combat',
+        resume:
+            'Deux presets de talents pour alterner entre développement tranquille et guerre.',
+        niveau: 'Débutant',
+        illustration: '/images/guides/talents.png',
     },
     {
+        id: 'sombres-nids',
+        category: 'tuto',
         slug: 'sombres-nids',
-        title: 'Sombres nids',
-        category: 'tuto',
-        level: 'Intermédiaire',
-        summary: 'Guide complet pour mener des ralliements contre les sombres nids.',
-        readTime: '6 min',
-        imageUrl: '/images/placeholder-hero.png',
+        titre: 'Sombres nids',
+        resume:
+            'Les bases pour lancer des nids sans tout casser : compositions, timers et coordination de guilde.',
+        niveau: 'Intermédiaire',
+        illustration: '/images/guides/sombres-nids.png',
     },
     {
-        slug: 'stages-de-heros',
-        title: 'Stages de héros',
+        id: 'stages-heros',
         category: 'tuto',
-        level: 'Débutant',
-        summary: 'Astuces pour terminer les stages de héros (Normal et Élite).',
-        readTime: '5 min',
-        imageUrl: '/images/placeholder-hero.png',
+        slug: 'stages-heros',
+        titre: 'Stages de héros',
+        resume:
+            'Comment passer les chapitres qui bloquent, quels héros monter en priorité pour avancer.',
+        niveau: 'Débutant',
+        illustration: '/images/guides/stages-heros.png',
     },
     {
+        id: 'heros',
+        category: 'tuto',
         slug: 'heros',
-        title: 'Héros F2P indispensables',
-        category: 'tuto',
-        level: 'Débutant',
-        summary: 'Quels héros monter en priorité quand on est Free-to-Play.',
-        readTime: '7 min',
-        imageUrl: '/images/placeholder-hero.png',
+        titre: 'Héros',
+        resume:
+            'Vue d’ensemble des héros F2P : farm, guerre, mur, soutien… et comment les utiliser intelligemment.',
+        niveau: 'Intermédiaire',
+        illustration: '/images/guides/heros.png',
     },
     {
+        id: 'joyaux',
+        category: 'tuto',
         slug: 'joyaux',
-        title: 'Optimisation des Joyaux',
-        category: 'tuto',
-        level: 'Intermédiaire',
-        summary: 'Quels joyaux incruster sur vos équipements de guerre.',
-        readTime: '4 min',
-        imageUrl: '/images/placeholder-hero.png',
+        titre: 'Joyaux',
+        resume:
+            'Quels joyaux placer sur quel équipement, selon que tu joues farm, guerre ou mix.',
+        niveau: 'Intermédiaire',
+        illustration: '/images/guides/joyaux.png',
     },
     {
+        id: 'stuff',
+        category: 'tuto',
         slug: 'stuff',
-        title: 'Équipement (Stuff)',
-        category: 'tuto',
-        level: 'Avancé',
-        summary: 'Les meilleurs sets d\'équipement pour chaque type de troupe.',
-        readTime: '8 min',
-        imageUrl: '/images/placeholder-hero.png',
+        titre: 'Stuff (équipement)',
+        resume:
+            'Les ensembles de base pour farm, combat mono et compo mixte, avec une logique F2P.',
+        niveau: 'Intermédiaire',
+        illustration: '/images/guides/stuff.png',
     },
     {
+        id: 'exp-joueur',
+        category: 'tuto',
         slug: 'exp-joueur',
-        title: 'XP Joueur rapide',
-        category: 'tuto',
-        level: 'Débutant',
-        summary: 'Comment monter rapidement au niveau 60.',
-        readTime: '3 min',
-        imageUrl: '/images/placeholder-hero.png',
+        titre: 'Expérience joueur',
+        resume:
+            'Comment monter rapidement ton niveau de joueur, et ce que ça débloque concrètement.',
+        niveau: 'Débutant',
+        illustration: '/images/guides/exp-joueur.png',
     },
     {
+        id: 'familiers',
+        category: 'tuto',
         slug: 'familiers',
-        title: 'Familiers',
-        category: 'tuto',
-        level: 'Intermédiaire',
-        summary: 'Les familiers à monter en priorité pour le développement et la guerre.',
-        readTime: '6 min',
-        imageUrl: '/images/placeholder-hero.png',
+        titre: 'Familiers',
+        resume:
+            'Les familiers utiles en priorité pour la chasse, la guerre et l’éco, sans tomber dans le full pay-to-win.',
+        niveau: 'Intermédiaire',
+        illustration: '/images/guides/familiers.png',
     },
     {
+        id: 'base-rally',
+        category: 'tuto',
         slug: 'base-rally',
-        title: 'Base d\'un rally',
-        category: 'tuto',
-        level: 'Avancé',
-        summary: 'Comprendre la composition et le lead d\'un ralliement.',
-        readTime: '10 min',
-        imageUrl: '/images/placeholder-hero.png',
+        titre: 'Base d’un rally',
+        resume:
+            'Les bases pour lancer ou rejoindre des rallys sans ruiner ta guilde : formation, rôle, timing.',
+        niveau: 'Intermédiaire',
+        illustration: '/images/guides/base-rally.png',
     },
-    // Événements
+
+    // --------- EVENEMENTS ----------
     {
+        id: 'guild-fest',
+        category: 'evenements',
         slug: 'guild-fest',
-        title: 'Guild Fest (Fête des Guildes)',
-        category: 'evenements',
-        level: 'Intermédiaire',
-        summary: 'Comment maximiser vos points lors du Guild Fest.',
-        readTime: '5 min',
-        imageUrl: '/images/placeholder-hero.png',
+        titre: 'Guild Fest',
+        resume:
+            'Quêtes à privilégier, pièges à éviter et organisation de guilde pour maximiser les points.',
+        niveau: 'Intermédiaire',
+        illustration: '/images/guides/guild-fest.png',
     },
     {
+        id: 'arene-dragon',
+        category: 'evenements',
         slug: 'arene-dragon',
-        title: 'Arène du Dragon',
-        category: 'evenements',
-        level: 'Avancé',
-        summary: 'Stratégies pour gagner l\'Arène du Dragon.',
-        readTime: '8 min',
-        imageUrl: '/images/placeholder-hero.png',
+        titre: 'Arène Dragon',
+        resume:
+            'Préparation des forts, compositions globales et coordination de guilde pendant l’Arène.',
+        niveau: 'Avancé',
+        illustration: '/images/guides/arene-dragon.png',
     },
     {
+        id: 'kvk',
+        category: 'evenements',
         slug: 'kvk',
-        title: 'KvK (Royaume vs Royaume)',
-        category: 'evenements',
-        level: 'Avancé',
-        summary: 'Préparer et survivre au KvK.',
-        readTime: '7 min',
-        imageUrl: '/images/placeholder-hero.png',
+        titre: 'KvK',
+        resume:
+            'Comment scorer en KvK sans brûler ton château pour rien : bouclier, migrations, cibles.',
+        niveau: 'Intermédiaire',
+        illustration: '/images/guides/kvk.png',
     },
     {
-        slug: 'epreuve-guilde',
-        title: 'Épreuve de Guilde',
+        id: 'epreuve-guilde',
         category: 'evenements',
-        level: 'Débutant',
-        summary: 'Formations pour vaincre les boss de l\'épreuve de guilde.',
-        readTime: '3 min',
-        imageUrl: '/images/placeholder-hero.png',
+        slug: 'epreuve-de-guilde',
+        titre: 'Épreuve de guilde',
+        resume:
+            'Optimiser les dégâts sur les boss, bien utiliser les tentatives et les bonus de guilde.',
+        niveau: 'Débutant',
+        illustration: '/images/guides/epreuve-guilde.png',
     },
 ];

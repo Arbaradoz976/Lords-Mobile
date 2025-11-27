@@ -1,34 +1,27 @@
-import { Card } from '@/components/ui/Card';
-import { GUIDES } from '@/data/guides';
+// app/guides/evenements/page.tsx
+import { guides } from '@/data/guides';
+import { GuideCard } from '@/components/GuideCard';
 
-export default function EventGuidesPage() {
-    const guides = GUIDES.filter(g => g.category === 'evenements');
+export default function GuidesEvenementsPage() {
+    const events = guides.filter((g) => g.category === 'evenements');
 
     return (
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-            <div className="mb-12">
-                <h1 className="text-3xl font-bold text-white mb-4">Guides Événements</h1>
-                <p className="text-gray-400">
-                    Optimisez vos scores et récompenses lors des événements majeurs.
+        <main className="mx-auto max-w-5xl px-4 py-8 space-y-6">
+            <header>
+                <h1 className="text-3xl font-bold text-slate-50 mb-2">
+                    Guides Événements
+                </h1>
+                <p className="text-sm text-slate-300">
+                    Guild Fest, KvK, Arène Dragon, Épreuve de guilde : bien préparer ta
+                    guilde pour chaque événement.
                 </p>
-            </div>
+            </header>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {guides.map((guide) => (
-                    <Card
-                        key={guide.slug}
-                        title={guide.title}
-                        description={guide.summary}
-                        imageUrl={guide.imageUrl}
-                        category="Événement"
-                        level={guide.level}
-                        href={`/guides/evenements/${guide.slug}`}
-                        footer={
-                            <span className="text-sm text-gray-500">⏱️ {guide.readTime}</span>
-                        }
-                    />
+            <section className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                {events.map((guide) => (
+                    <GuideCard key={guide.id} guide={guide} />
                 ))}
-            </div>
-        </div>
+            </section>
+        </main>
     );
 }

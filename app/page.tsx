@@ -1,13 +1,14 @@
 import { Hero } from '@/components/Hero';
-import { Card } from '@/components/ui/Card';
+import { GuideCard } from '@/components/GuideCard';
 import { Button } from '@/components/ui/Button';
-import { GUIDES } from '@/data/guides';
+import { guides } from '@/data/guides';
 import { TOOLS } from '@/data/tools';
+import { Card } from '@/components/ui/Card';
 
 export default function Home() {
   // Select a few guides for the homepage
-  const tutoGuides = GUIDES.filter(g => g.category === 'tuto').slice(0, 3);
-  const eventGuides = GUIDES.filter(g => g.category === 'evenements').slice(0, 3);
+  const tutoGuides = guides.filter(g => g.category === 'tuto').slice(0, 3);
+  const eventGuides = guides.filter(g => g.category === 'evenements').slice(0, 3);
   const featuredTools = TOOLS.slice(0, 3);
 
   return (
@@ -27,18 +28,7 @@ export default function Home() {
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {tutoGuides.map((guide) => (
-            <Card
-              key={guide.slug}
-              title={guide.title}
-              description={guide.summary}
-              imageUrl={guide.imageUrl}
-              category="Tuto"
-              level={guide.level}
-              href={`/guides/tuto/${guide.slug}`}
-              footer={
-                <span className="text-sm text-gray-500">⏱️ {guide.readTime}</span>
-              }
-            />
+            <GuideCard key={guide.id} guide={guide} />
           ))}
         </div>
         <div className="mt-6 sm:hidden">
@@ -61,18 +51,7 @@ export default function Home() {
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {eventGuides.map((guide) => (
-            <Card
-              key={guide.slug}
-              title={guide.title}
-              description={guide.summary}
-              imageUrl={guide.imageUrl}
-              category="Événement"
-              level={guide.level}
-              href={`/guides/evenements/${guide.slug}`}
-              footer={
-                <span className="text-sm text-gray-500">⏱️ {guide.readTime}</span>
-              }
-            />
+            <GuideCard key={guide.id} guide={guide} />
           ))}
         </div>
         <div className="mt-6 sm:hidden">
@@ -119,3 +98,4 @@ export default function Home() {
     </div>
   );
 }
+

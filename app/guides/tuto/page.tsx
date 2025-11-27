@@ -1,34 +1,26 @@
-import { Card } from '@/components/ui/Card';
-import { GUIDES } from '@/data/guides';
+// app/guides/tuto/page.tsx
+import { guides } from '@/data/guides';
+import { GuideCard } from '@/components/GuideCard';
 
-export default function TutoGuidesPage() {
-    const guides = GUIDES.filter(g => g.category === 'tuto');
+export default function GuidesTutoPage() {
+    const tutos = guides.filter((g) => g.category === 'tuto');
 
     return (
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-            <div className="mb-12">
-                <h1 className="text-3xl font-bold text-white mb-4">Guides Tutoriels</h1>
-                <p className="text-gray-400">
-                    Tout ce qu'il faut savoir pour bien débuter et progresser dans Lords Mobile.
+        <main className="mx-auto max-w-5xl px-4 py-8 space-y-6">
+            <header>
+                <h1 className="text-3xl font-bold text-slate-50 mb-2">
+                    Guides Tuto
+                </h1>
+                <p className="text-sm text-slate-300">
+                    Les bases de Lords Mobile : chasse, talents, stuff, familiers, rally…
                 </p>
-            </div>
+            </header>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {guides.map((guide) => (
-                    <Card
-                        key={guide.slug}
-                        title={guide.title}
-                        description={guide.summary}
-                        imageUrl={guide.imageUrl}
-                        category="Tuto"
-                        level={guide.level}
-                        href={`/guides/tuto/${guide.slug}`}
-                        footer={
-                            <span className="text-sm text-gray-500">⏱️ {guide.readTime}</span>
-                        }
-                    />
+            <section className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                {tutos.map((guide) => (
+                    <GuideCard key={guide.id} guide={guide} />
                 ))}
-            </div>
-        </div>
+            </section>
+        </main>
     );
 }
