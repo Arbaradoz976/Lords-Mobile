@@ -1,9 +1,16 @@
 // app/guides/[category]/[slug]/content/chasse-aux-monstres.tsx
 import Image from 'next/image';
+import { MonsterPanel } from '@/components/MonsterPanel';
+
+// Helper pour créer les objets héros
+const H = (name: string, file: string) => ({
+    name,
+    image: `/heroes/${file}`,
+});
 
 export function ChasseAuxMonstresContent() {
     return (
-        <article className="prose prose-invert max-w-none prose-headings:text-slate-50 prose-p:text-slate-200 prose-li:text-slate-200 prose-strong:text-slate-50">
+        <article className="prose-lm">
             <h2>Pourquoi chasser les monstres ?</h2>
             <p>
                 La chasse aux monstres est l&apos;une des meilleures sources régulières de
@@ -72,7 +79,7 @@ export function ChasseAuxMonstresContent() {
 
             <h2>Héros F2P recommandés pour la chasse</h2>
             <p>
-                Le jeu recommande un noyau de  héros gratuits très efficaces pour la chasse
+                Le jeu recommande un noyau de héros gratuits très efficaces pour la chasse
                 aux monstres. Ils combinent bons dégâts, utilitaires et soins.
             </p>
 
@@ -125,427 +132,250 @@ export function ChasseAuxMonstresContent() {
                 d&apos;équipement).
             </p>
 
-            <h2>Exemple : Reine des Abeilles</h2>
-
-            <section className="mt-8 not-prose rounded-2xl border border-emerald-500/30 bg-slate-950/80 p-6 shadow-xl">
-                <div className="flex flex-col gap-4 md:flex-row md:items-center">
-                    {/* Monstre Image */}
-                    <div className="relative mx-auto h-40 w-40 flex-shrink-0 md:mx-0">
-                        <div className="absolute inset-0 flex items-center justify-center text-amber-500 text-7xl">
-                            🐝
-                        </div>
-                        {/* Quand l'image sera disponible:
-                        <Image
-                            src="/monsters/reine-des-abeilles.png"
-                            alt="Reine des Abeilles"
-                            fill
-                            className="object-contain drop-shadow-[0_0_25px_rgba(251,191,36,0.8)]"
-                        />
-                        */}
-                    </div>
-
-                    {/* Infos + héros conseillés */}
-                    <div className="flex-1">
-                        <h3 className="text-xl font-bold text-amber-300 mb-2">
-                            Reine des Abeilles
-                        </h3>
-                        <p className="text-sm text-slate-200 mb-3">
-                            Monstre plutôt orienté anti-magique. Utilise une équipe F2P basée sur
-                            des DPS physiques pour maximiser tes dégâts.
-                        </p>
-
-                        <p className="text-xs font-semibold text-slate-300 uppercase tracking-wide mb-2">
-                            Héros conseillés (F2P)
-                        </p>
-
-                        <div className="lm-hero-row">
-                            <div className="lm-hero-icon flex items-center justify-center text-amber-400 text-2xl">
-                                ⚔️
-                                {/* Quand les images seront disponibles:
-                                <Image
-                                    src="/heroes/tueur-de-demons.png"
-                                    alt="Tueur de Démons"
-                                    width={44}
-                                    height={44}
-                                />
-                                */}
-                            </div>
-                            <div className="lm-hero-icon flex items-center justify-center text-purple-400 text-2xl">
-                                ⚡
-                                {/* 
-                                <Image
-                                    src="/heroes/eclaire-pourpre.png"
-                                    alt="Éclair Pourpre"
-                                    width={44}
-                                    height={44}
-                                />
-                                */}
-                            </div>
-                            <div className="lm-hero-icon flex items-center justify-center text-green-400 text-2xl">
-                                🗡️
-                                {/*
-                                <Image
-                                    src="/heroes/roublard.png"
-                                    alt="Le Roublard"
-                                    width={44}
-                                    height={44}
-                                />
-                                */}
-                            </div>
-                            <div className="lm-hero-icon flex items-center justify-center text-red-400 text-2xl">
-                                🏹
-                                {/*
-                                <Image
-                                    src="/heroes/traqueuse.png"
-                                    alt="Traqueuse"
-                                    width={44}
-                                    height={44}
-                                />
-                                */}
-                            </div>
-                            <div className="lm-hero-icon flex items-center justify-center text-blue-400 text-2xl">
-                                🦅
-                                {/*
-                                <Image
-                                    src="/heroes/oiseau-noir.png"
-                                    alt="Oiseau Noir"
-                                    width={44}
-                                    height={44}
-                                />
-                                */}
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
             <h2>Compositions F2P conseillées par monstre</h2>
             <p>
-                Voici une base de compositions de chasse 100% héros gratuits pour les
-                principaux monstres. Ce ne sont pas les seuls choix possibles : l&apos;important
-                est de respecter le principe <strong>physique vs magique</strong> (on
-                privilégie les héros magiques contre les monstres forts contre le physique,
-                et inversement).
+                Voici les compositions officielles du guide IGG "Chasse du monstre" pour les
+                niveaux 4–5 (ou 1–5 quand précisé). Ces compos F2P sont optimisées selon
+                les résistances de chaque monstre.
             </p>
 
-            <p>
-                Utilise ces équipes comme point de départ, puis ajuste selon les héros que
-                tu as montés (par exemple en remplaçant un DPS par un autre du même type).
-            </p>
+            <MonsterPanel
+                name="Reine des Abeilles"
+                description="Fort contre la magie. Composition IGG pour les niveaux 4–5."
+                monsterImage="/monsters/reine-abeille.png"
+                heroes={[
+                    H('Tueur de Démons', 'tueur-de-demons.png'),
+                    H('Éclair Pourpre', 'eclair-pourpre.png'),
+                    H('Traqueuse', 'traqueuse.png'),
+                    H('Oiseau Noir', 'oiseau-noir.png'),
+                    H('Femme Fatale', 'femme-fatale.png'),
+                ]}
+            />
 
-            <div className="overflow-x-auto rounded-2xl border border-white/5 bg-slate-900/40">
-                <table className="min-w-full text-sm">
-                    <thead className="bg-slate-900/70">
-                        <tr>
-                            <th className="px-3 py-2 text-left font-semibold text-slate-100">
-                                Monstre
-                            </th>
-                            <th className="px-3 py-2 text-left font-semibold text-slate-100">
-                                Profil du monstre
-                            </th>
-                            <th className="px-3 py-2 text-left font-semibold text-slate-100">
-                                Composition F2P conseillée
-                            </th>
-                        </tr>
-                    </thead>
-                    <tbody className="divide-y divide-white/5">
-                        <tr>
-                            <td className="px-3 py-2 font-semibold text-slate-50">
-                                Titan des Marées
-                            </td>
-                            <td className="px-3 py-2 text-slate-200">
-                                Fort contre le physique ⇒ privilégier des héros magiques.
-                            </td>
-                            <td className="px-3 py-2 text-slate-200">
-                                Incinératrice, Élémentaliste, Reine des Neiges, Sage tourmenté,
-                                Gobelin Bombardier
-                            </td>
-                        </tr>
-                        <tr>
-                            <td className="px-3 py-2 font-semibold text-slate-50">
-                                Morfalange
-                            </td>
-                            <td className="px-3 py-2 text-slate-200">
-                                Résistant à la magie ⇒ privilégier des DPS physiques.
-                            </td>
-                            <td className="px-3 py-2 text-slate-200">
-                                Tueur de Démons, Éclair Pourpre, Le Roublard, Traqueuse, Ombre
-                            </td>
-                        </tr>
-                        <tr>
-                            <td className="px-3 py-2 font-semibold text-slate-50">
-                                Reine des Abeilles
-                            </td>
-                            <td className="px-3 py-2 text-slate-200">
-                                Plutôt orientée anti-magique.
-                            </td>
-                            <td className="px-3 py-2 text-slate-200">
-                                Tueur de Démons, Éclair Pourpre, Le Roublard, Traqueuse, Oiseau Noir
-                            </td>
-                        </tr>
-                        <tr>
-                            <td className="px-3 py-2 font-semibold text-slate-50">
-                                Mécha Troyen
-                            </td>
-                            <td className="px-3 py-2 text-slate-200">
-                                Fort contre le physique ⇒ team full magie.
-                            </td>
-                            <td className="px-3 py-2 text-slate-200">
-                                Incinératrice, Élémentaliste, Prima Donna, Reine des Neiges,
-                                Gobelin Bombardier
-                            </td>
-                        </tr>
-                        <tr>
-                            <td className="px-3 py-2 font-semibold text-slate-50">
-                                Ailes Noires
-                            </td>
-                            <td className="px-3 py-2 text-slate-200">
-                                Résistant à la magie ⇒ prioriser les héros physiques.
-                            </td>
-                            <td className="px-3 py-2 text-slate-200">
-                                Tueur de Démons, Éclair Pourpre, Le Roublard, Traqueuse, Oiseau Noir
-                            </td>
-                        </tr>
-                        <tr>
-                            <td className="px-3 py-2 font-semibold text-slate-50">Sabrecroc</td>
-                            <td className="px-3 py-2 text-slate-200">
-                                Fort contre le physique ⇒ privilégier la magie.
-                            </td>
-                            <td className="px-3 py-2 text-slate-200">
-                                Incinératrice, Élémentaliste, Prima Donna, Reine des Neiges,
-                                Gobelin Bombardier
-                            </td>
-                        </tr>
-                        <tr>
-                            <td className="px-3 py-2 font-semibold text-slate-50">Nocéros</td>
-                            <td className="px-3 py-2 text-slate-200">
-                                Fort contre le physique ⇒ team magique.
-                            </td>
-                            <td className="px-3 py-2 text-slate-200">
-                                Incinératrice, Élémentaliste, Prima Donna, Reine des Neiges,
-                                Gobelin Bombardier
-                            </td>
-                        </tr>
-                        <tr>
-                            <td className="px-3 py-2 font-semibold text-slate-50">
-                                La Faucheuse
-                            </td>
-                            <td className="px-3 py-2 text-slate-200">
-                                Plutôt orientée anti-magique.
-                            </td>
-                            <td className="px-3 py-2 text-slate-200">
-                                Tueur de Démons, Éclair Pourpre, Le Roublard, Traqueuse, Oiseau Noir
-                            </td>
-                        </tr>
-                        <tr>
-                            <td className="px-3 py-2 font-semibold text-slate-50">
-                                Drider de l&apos;enfer
-                            </td>
-                            <td className="px-3 py-2 text-slate-200">
-                                Très complet, résiste au physique et à la magie.
-                            </td>
-                            <td className="px-3 py-2 text-slate-200">
-                                Tueur de Démons, Éclair Pourpre, Le Roublard, Traqueuse, Oiseau Noir
-                            </td>
-                        </tr>
-                        <tr>
-                            <td className="px-3 py-2 font-semibold text-slate-50">
-                                Méga-larve
-                            </td>
-                            <td className="px-3 py-2 text-slate-200">
-                                Fort contre le physique ⇒ privilégier la magie.
-                            </td>
-                            <td className="px-3 py-2 text-slate-200">
-                                Incinératrice, Élémentaliste, Prima Donna, Reine des Neiges,
-                                Gobelin Bombardier
-                            </td>
-                        </tr>
-                        <tr>
-                            <td className="px-3 py-2 font-semibold text-slate-50">
-                                Gargantua
-                            </td>
-                            <td className="px-3 py-2 text-slate-200">
-                                Fort contre le physique ⇒ team magique.
-                            </td>
-                            <td className="px-3 py-2 text-slate-200">
-                                Incinératrice, Élémentaliste, Prima Donna, Reine des Neiges,
-                                Gobelin Bombardier
-                            </td>
-                        </tr>
-                        <tr>
-                            <td className="px-3 py-2 font-semibold text-slate-50">Épinator</td>
-                            <td className="px-3 py-2 text-slate-200">
-                                Résistant à la magie ⇒ héro physiques en priorité.
-                            </td>
-                            <td className="px-3 py-2 text-slate-200">
-                                Tueur de Démons, Éclair Pourpre, Le Roublard, Traqueuse, Oiseau Noir
-                            </td>
-                        </tr>
-                        <tr>
-                            <td className="px-3 py-2 font-semibold text-slate-50">
-                                Wyrm de Jade
-                            </td>
-                            <td className="px-3 py-2 text-slate-200">
-                                Fort contre le physique ⇒ beaucoup de magie.
-                            </td>
-                            <td className="px-3 py-2 text-slate-200">
-                                Incinératrice, Élémentaliste, Prima Donna, Reine des Neiges,
-                                Gobelin Bombardier
-                            </td>
-                        </tr>
-                        <tr>
-                            <td className="px-3 py-2 font-semibold text-slate-50">
-                                Bête des Neiges
-                            </td>
-                            <td className="px-3 py-2 text-slate-200">
-                                Résistante à la magie ⇒ prioriser le physique.
-                            </td>
-                            <td className="px-3 py-2 text-slate-200">
-                                Tueur de Démons, Éclair Pourpre, Le Roublard, Traqueuse, Oiseau Noir
-                            </td>
-                        </tr>
-                        <tr>
-                            <td className="px-3 py-2 font-semibold text-slate-50">Griffon</td>
-                            <td className="px-3 py-2 text-slate-200">
-                                Fort contre magie et physique ⇒ privilégier tes meilleurs DPS
-                                physiques.
-                            </td>
-                            <td className="px-3 py-2 text-slate-200">
-                                Tueur de Démons, Éclair Pourpre, Le Roublard, Traqueuse, Oiseau Noir
-                            </td>
-                        </tr>
-                        <tr>
-                            <td className="px-3 py-2 font-semibold text-slate-50">
-                                Ailes-de-givre
-                            </td>
-                            <td className="px-3 py-2 text-slate-200">
-                                Résistant à la magie ⇒ focus DPS physiques distance.
-                            </td>
-                            <td className="px-3 py-2 text-slate-200">
-                                Tueur de Démons, Éclair Pourpre, Le Roublard, Traqueuse, Oiseau Noir
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+            <MonsterPanel
+                name="Sabrecroc"
+                description="Fort contre le physique. Composition IGG valide pour les niveaux 1–5."
+                monsterImage="/monsters/sabrecroc.png"
+                heroes={[
+                    H('Incinératrice', 'incineratrice.png'),
+                    H('Élémentaliste', 'elementaliste.png'),
+                    H('Sorcière du Rêve', 'sorciere-du-reve.png'),
+                    H('Petite Succube', 'petite-succube.png'),
+                    H('Renard Ouragan', 'renard-ouragan.png'),
+                ]}
+            />
 
-            <p className="text-xs text-slate-400 mt-2">
-                Ces compositions sont des exemples pour t&apos;aider à démarrer. Tu peux les
-                adapter (par exemple remplacer un DPS physique par un autre héros F2P
-                physique que tu as mieux monté).
-            </p>
+            <MonsterPanel
+                name="Griffon"
+                description="Fort contre la magie et le physique. Composition IGG pour les niveaux 4–5."
+                monsterImage="/monsters/griffon.png"
+                heroes={[
+                    H('Femme Fatale', 'femme-fatale.png'),
+                    H('Tueur de Démons', 'tueur-de-demons.png'),
+                    H('Éclair Pourpre', 'eclair-pourpre.png'),
+                    H('Oiseau Noir', 'oiseau-noir.png'),
+                    H('Archère Funeste', 'archere-funeste.png'),
+                ]}
+            />
 
-            <h2>Quel monstre pour quel type d&apos;équipement ?</h2>
-            <p>
-                En plus des ressources et objets divers, chaque monstre a son identité en
-                termes de <strong>type de stuff</strong> qu&apos;il fournit. Voici un mémo
-                rapide à garder sous la main quand tu farm :
-            </p>
+            <MonsterPanel
+                name="Mécha Troyen"
+                description="Fort contre le physique. Composition IGG pour tous les niveaux (1–5)."
+                monsterImage="/monsters/mecha-troyen.png"
+                heroes={[
+                    H('Incinératrice', 'incineratrice.png'),
+                    H('Élémentaliste', 'elementaliste.png'),
+                    H('Sorcière du Rêve', 'sorciere-du-reve.png'),
+                    H('Petite Succube', 'petite-succube.png'),
+                    H('Renard Ouragan', 'renard-ouragan.png'),
+                ]}
+            />
 
-            <div className="overflow-x-auto rounded-2xl border border-white/5 bg-slate-900/40">
-                <table className="min-w-full text-sm">
-                    <thead className="bg-slate-900/70">
-                        <tr>
-                            <th className="px-3 py-2 text-left font-semibold text-slate-100">
-                                Monstre
-                            </th>
-                            <th className="px-3 py-2 text-left font-semibold text-slate-100">
-                                Type d&apos;équipement principal
-                            </th>
-                        </tr>
-                    </thead>
-                    <tbody className="divide-y divide-white/5">
-                        <tr>
-                            <td className="px-3 py-2 font-semibold text-slate-50">
-                                Golem antique
-                            </td>
-                            <td className="px-3 py-2 text-slate-200">
-                                Équipement orienté <strong>vitesse d&apos;entraînement</strong>.
-                            </td>
-                        </tr>
-                        <tr>
-                            <td className="px-3 py-2 font-semibold text-slate-50">
-                                Wyrm de Jade
-                            </td>
-                            <td className="px-3 py-2 text-slate-200">
-                                Stuff orienté <strong>snipers distance</strong>.
-                            </td>
-                        </tr>
-                        <tr>
-                            <td className="px-3 py-2 font-semibold text-slate-50">Serrulule</td>
-                            <td className="px-3 py-2 text-slate-200">
-                                Équipement <strong>cavalerie sniper</strong>.
-                            </td>
-                        </tr>
-                        <tr>
-                            <td className="px-3 py-2 font-semibold text-slate-50">
-                                Titan des Marées
-                            </td>
-                            <td className="px-3 py-2 text-slate-200">
-                                Stuff <strong>infanterie / cavalerie</strong>.
-                            </td>
-                        </tr>
-                        <tr>
-                            <td className="px-3 py-2 font-semibold text-slate-50">
-                                Ailes-de-givre
-                            </td>
-                            <td className="px-3 py-2 text-slate-200">
-                                Stuff <strong>mixte</strong> (stats armée globales).
-                            </td>
-                        </tr>
-                        <tr>
-                            <td className="px-3 py-2 font-semibold text-slate-50">
-                                Ailes Noires
-                            </td>
-                            <td className="px-3 py-2 text-slate-200">
-                                Stuff <strong>cavalerie / sniper</strong>.
-                            </td>
-                        </tr>
-                        <tr>
-                            <td className="px-3 py-2 font-semibold text-slate-50">
-                                La Faucheuse
-                            </td>
-                            <td className="px-3 py-2 text-slate-200">
-                                Stuff orienté <strong>distance</strong>.
-                            </td>
-                        </tr>
-                        <tr>
-                            <td className="px-3 py-2 font-semibold text-slate-50">
-                                Cotterage
-                            </td>
-                            <td className="px-3 py-2 text-slate-200">
-                                Équipement <strong>infanterie</strong>.
-                            </td>
-                        </tr>
-                        <tr>
-                            <td className="px-3 py-2 font-semibold text-slate-50">
-                                Drider de l&apos;enfer
-                            </td>
-                            <td className="px-3 py-2 text-slate-200">
-                                Stuff <strong>mixte</strong>.
-                            </td>
-                        </tr>
-                        <tr>
-                            <td className="px-3 py-2 font-semibold text-slate-50">Nocéros</td>
-                            <td className="px-3 py-2 text-slate-200">
-                                Stuff <strong>construction &amp; recherche</strong>.
-                            </td>
-                        </tr>
-                        <tr>
-                            <td className="px-3 py-2 font-semibold text-slate-50">Griffon</td>
-                            <td className="px-3 py-2 text-slate-200">
-                                Stuff <strong>construction &amp; recherche</strong>.
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+            <MonsterPanel
+                name="Wyrm de Jade"
+                description="Fort contre le physique. Composition IGG pour les niveaux 4–5."
+                monsterImage="/monsters/wyrm-de-jade.png"
+                heroes={[
+                    H('Incinératrice', 'incineratrice.png'),
+                    H('Élémentaliste', 'elementaliste.png'),
+                    H('Sorcière du Rêve', 'sorciere-du-reve.png'),
+                    H('Petite Succube', 'petite-succube.png'),
+                    H('Enfant de Lumière', 'enfant-de-lumiere.png'),
+                ]}
+            />
 
-            <p className="text-sm text-slate-300 mt-4">
-                En résumé : choisis ton monstre en fonction du type de stuff que tu veux
-                monter (guerre, farm, construction/recherche, entraînement, etc.), puis
-                utilise une compo adaptée au profil du monstre (fort contre magie ou
-                physique).
+            <MonsterPanel
+                name="Morfalange"
+                description="Fort contre la magie. Composition IGG pour les niveaux 4–5."
+                monsterImage="/monsters/morfalange.png"
+                heroes={[
+                    H('Traqueuse', 'traqueuse.png'),
+                    H('Tueur de Démons', 'tueur-de-demons.png'),
+                    H('Éclair Pourpre', 'eclair-pourpre.png'),
+                    H('Oiseau Noir', 'oiseau-noir.png'),
+                    H('Femme Fatale', 'femme-fatale.png'),
+                ]}
+            />
+
+            <MonsterPanel
+                name="Gargantua"
+                description="Fort contre le physique. Composition IGG pour les niveaux 4–5."
+                monsterImage="/monsters/gargantua.png"
+                heroes={[
+                    H('Incinératrice', 'incineratrice.png'),
+                    H('Élémentaliste', 'elementaliste.png'),
+                    H('Sorcière du Rêve', 'sorciere-du-reve.png'),
+                    H('Petite Succube', 'petite-succube.png'),
+                    H('Enfant de Lumière', 'enfant-de-lumiere.png'),
+                ]}
+            />
+
+            <MonsterPanel
+                name="Ailes-de-givre"
+                description="Fort contre la magie. Composition IGG pour les niveaux 4–5."
+                monsterImage="/monsters/ailes-de-givre.png"
+                heroes={[
+                    H('Tueur de Démons', 'tueur-de-demons.png'),
+                    H('Éclair Pourpre', 'eclair-pourpre.png'),
+                    H('Oiseau Noir', 'oiseau-noir.png'),
+                    H('Archère Funeste', 'archere-funeste.png'),
+                    H('Femme Fatale', 'femme-fatale.png'),
+                ]}
+            />
+
+            <MonsterPanel
+                name="Drider de l'Enfer"
+                description="Fort contre la magie et le physique. Composition IGG pour les niveaux 4–5."
+                monsterImage="/monsters/drider-enfer.png"
+                heroes={[
+                    H('Archère Funeste', 'archere-funeste.png'),
+                    H('Tueur de Démons', 'tueur-de-demons.png'),
+                    H('Éclair Pourpre', 'eclair-pourpre.png'),
+                    H('Oiseau Noir', 'oiseau-noir.png'),
+                    H('Femme Fatale', 'femme-fatale.png'),
+                ]}
+            />
+
+            <MonsterPanel
+                name="Bête des Neiges"
+                description="Fort contre la magie. Composition IGG pour les niveaux 4–5."
+                monsterImage="/monsters/bete-des-neiges.png"
+                heroes={[
+                    H('Tueur de Démons', 'tueur-de-demons.png'),
+                    H('Femme Fatale', 'femme-fatale.png'),
+                    H('Éclair Pourpre', 'eclair-pourpre.png'),
+                    H('Oiseau Noir', 'oiseau-noir.png'),
+                    H('Archère Funeste', 'archere-funeste.png'),
+                ]}
+            />
+
+            <MonsterPanel
+                name="Titan des Marais"
+                description="Fort contre le physique. Composition IGG pour les niveaux 4–5."
+                monsterImage="/monsters/titan-des-marais.png"
+                heroes={[
+                    H('Incinératrice', 'incineratrice.png'),
+                    H('Élémentaliste', 'elementaliste.png'),
+                    H('Reine des Neiges', 'reine-des-neiges.png'),
+                    H('Prima Donna', 'prima-donna.png'),
+                    H('Renard Ouragan', 'renard-ouragan.png'),
+                ]}
+            />
+
+            <MonsterPanel
+                name="Épinator"
+                description="Fort contre la magie. Composition IGG pour les niveaux 1–5."
+                monsterImage="/monsters/epinator.png"
+                heroes={[
+                    H('Traqueuse', 'traqueuse.png'),
+                    H('Tueur de Démons', 'tueur-de-demons.png'),
+                    H('Éclair Pourpre', 'eclair-pourpre.png'),
+                    H('Oiseau Noir', 'oiseau-noir.png'),
+                    H('Archère Funeste', 'archere-funeste.png'),
+                ]}
+            />
+
+            <MonsterPanel
+                name="Nocéros"
+                description="Fort contre le physique. Composition IGG pour les niveaux 4–5."
+                monsterImage="/monsters/noceros.png"
+                heroes={[
+                    H('Incinératrice', 'incineratrice.png'),
+                    H('Élémentaliste', 'elementaliste.png'),
+                    H('Sorcière du Rêve', 'sorciere-du-reve.png'),
+                    H('Petite Succube', 'petite-succube.png'),
+                    H('Prêtresse Aurora', 'pretresse-aurora.png'),
+                ]}
+            />
+
+            <MonsterPanel
+                name="Méga-larve"
+                description="Fort contre le physique. Composition IGG valable pour tous les niveaux."
+                monsterImage="/monsters/mega-larve.png"
+                heroes={[
+                    H('Incinératrice', 'incineratrice.png'),
+                    H('Élémentaliste', 'elementaliste.png'),
+                    H('Sorcière du Rêve', 'sorciere-du-reve.png'),
+                    H('Petite Succube', 'petite-succube.png'),
+                    H('Renard Ouragan', 'renard-ouragan.png'),
+                ]}
+            />
+
+            <MonsterPanel
+                name="Ailes Noires"
+                description="Fort contre la magie. Composition IGG pour les niveaux 4–5."
+                monsterImage="/monsters/ailes-noires.png"
+                heroes={[
+                    H('Chevalier Rose', 'chevalier-rose.png'),
+                    H('Tueur de Démons', 'tueur-de-demons.png'),
+                    H('Éclair Pourpre', 'eclair-pourpre.png'),
+                    H('Oiseau Noir', 'oiseau-noir.png'),
+                    H('Archère Funeste', 'archere-funeste.png'),
+                ]}
+            />
+
+            <MonsterPanel
+                name="La Faucheuse"
+                description="Fort contre la magie. Composition IGG pour les niveaux 4–5."
+                monsterImage="/monsters/la-faucheuse.png"
+                heroes={[
+                    H('Chevalier Rose', 'chevalier-rose.png'),
+                    H('Tueur de Démons', 'tueur-de-demons.png'),
+                    H('Éclair Pourpre', 'eclair-pourpre.png'),
+                    H('Oiseau Noir', 'oiseau-noir.png'),
+                    H('Archère Funeste', 'archere-funeste.png'),
+                ]}
+            />
+
+            <MonsterPanel
+                name="Golem Antique"
+                description="Fort contre le physique. Composition IGG pour les niveaux 4–5."
+                monsterImage="/monsters/golem-antique.png"
+                heroes={[
+                    H('Incinératrice', 'incineratrice.png'),
+                    H('Élémentaliste', 'elementaliste.png'),
+                    H('Sorcière du Rêve', 'sorciere-du-reve.png'),
+                    H('Petite Succube', 'petite-succube.png'),
+                    H('Prêtresse Aurora', 'pretresse-aurora.png'),
+                ]}
+            />
+
+            <MonsterPanel
+                name="Chaman Vaudou"
+                description="Fort contre la magie. Composition IGG pour les niveaux 4–5."
+                monsterImage="/monsters/chaman-vaudou.png"
+                heroes={[
+                    H('Traqueuse', 'traqueuse.png'),
+                    H('Tueur de Démons', 'tueur-de-demons.png'),
+                    H('Guide Éthéré', 'guide-ethere.png'),
+                    H('Oiseau Noir', 'oiseau-noir.png'),
+                    H('Chef', 'chef.png'),
+                ]}
+            />
+
+            <p className="mt-3 text-xs text-slate-400">
+                Ces compositions sont des exemples F2P. Tu peux remplacer un héros par un
+                autre du même type (physique/magique) si tu l&apos;as mieux monté.
             </p>
 
             <h2>À retenir</h2>

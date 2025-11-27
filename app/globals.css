@@ -70,4 +70,41 @@ body {
   .lm-hero-icon img {
     @apply h-full w-full object-cover;
   }
+
+  /* Prose des guides - style manuel sans plugin typography */
+  .prose-lm {
+    @apply max-w-none text-slate-200;
+  }
+
+  .prose-lm h2 {
+    @apply text-2xl font-bold text-amber-300 mt-8 mb-4;
+  }
+
+  .prose-lm h3 {
+    @apply text-lg font-semibold text-emerald-300 mt-6 mb-3;
+  }
+
+  .prose-lm p {
+    @apply text-sm text-slate-200 mb-4;
+  }
+
+  .prose-lm ul {
+    @apply text-sm text-slate-200 mb-4 ml-6 list-disc;
+  }
+
+  .prose-lm li {
+    @apply mb-2;
+  }
+
+  .prose-lm strong {
+    @apply text-slate-50 font-semibold;
+  }
+
+  .prose-lm em {
+    @apply italic;
+  }
+
+  .prose-lm table {
+    @apply w-full my-6;
+  }
 }
