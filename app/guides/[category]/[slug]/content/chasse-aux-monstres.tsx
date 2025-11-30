@@ -20,30 +20,25 @@ export function ChasseAuxMonstresContent() {
             </p>
 
             <ul>
-                <li>Ressources et coffres d&apos;équipement pour tes futurs stuffs.</li>
-                <li>Accélérateurs, coffres de familiers, gemmes et objets divers.</li>
+                <li>Ressources pour tes futurs stuffs.</li>
+                <li>Accélérateurs, coffres, gemmes et objets divers.</li>
                 <li>Points pour certains événements (Guild Fest, Épreuves, etc.).</li>
             </ul>
 
             <h2>Les bases de la chasse</h2>
 
-            <h3>Recherche &amp; talents de chasse</h3>
+            <h3>Recherche</h3>
             <p>
                 Avant de te focaliser sur des compositions de héros, assure-toi de
                 développer ta base :
             </p>
             <ul>
                 <li>
-                    Monter les recherches économiques liées à la chasse (et à
-                    l&apos;économie en général) pour réduire le coût en énergie et
+                    Monter les recherches liées à la chasse pour réduire le coût en énergie et
                     augmenter les dégâts.
                 </li>
                 <li>
-                    Débloquer et améliorer les technologies de <strong>chasse de monstre</strong>
-                    : dégâts de chasse, énergie maximale, vitesse de marche, etc.
-                </li>
-                <li>
-                    Prévoir un préréglage de <strong>talents chasse</strong> (attaque de héros,
+                    Prévoir un préréglage d'équipement de chasseur (attaque de héros,
                     énergie max, etc.) que tu actives uniquement quand tu vas chasser.
                 </li>
             </ul>
@@ -127,7 +122,7 @@ export function ChasseAuxMonstresContent() {
             </ul>
 
             <p className="text-sm text-slate-400">
-                💡 Rappel important : ce guide propose des compositions 100% héros gratuits.
+                💡 Rappel important : ce guide propose des compositions en temps qu'exemples.
                 Adapte toujours en fonction de ton niveau de héros (rang, grade, niveau
                 d&apos;équipement).
             </p>
@@ -141,7 +136,7 @@ export function ChasseAuxMonstresContent() {
 
             <MonsterPanel
                 name="Reine des Abeilles"
-                description="Fort contre la magie. Composition IGG pour les niveaux 4–5."
+                description="Fort contre la magie."
                 monsterImage="/monsters/reine-abeille.png"
                 heroes={[
                     H('Tueur de Démons', 'tueur-de-demons.png'),
@@ -154,7 +149,7 @@ export function ChasseAuxMonstresContent() {
 
             <MonsterPanel
                 name="Sabrecroc"
-                description="Fort contre le physique. Composition IGG valide pour les niveaux 1–5."
+                description="Fort contre le physique. "
                 monsterImage="/monsters/sabrecroc.png"
                 heroes={[
                     H('Incinératrice', 'incineratrice.png'),
@@ -167,7 +162,7 @@ export function ChasseAuxMonstresContent() {
 
             <MonsterPanel
                 name="Griffon"
-                description="Fort contre la magie et le physique. Composition IGG pour les niveaux 4–5."
+                description="Fort contre la magie et le physique."
                 monsterImage="/monsters/griffon.png"
                 heroes={[
                     H('Femme Fatale', 'femme-fatale.png'),
@@ -193,7 +188,7 @@ export function ChasseAuxMonstresContent() {
 
             <MonsterPanel
                 name="Wyrm de Jade"
-                description="Fort contre le physique. Composition IGG pour les niveaux 4–5."
+                description="Fort contre le physique."
                 monsterImage="/monsters/wyrm-de-jade.png"
                 heroes={[
                     H('Incinératrice', 'incineratrice.png'),
@@ -206,7 +201,7 @@ export function ChasseAuxMonstresContent() {
 
             <MonsterPanel
                 name="Morfalange"
-                description="Fort contre la magie. Composition IGG pour les niveaux 4–5."
+                description="Fort contre la magie."
                 monsterImage="/monsters/morfalange.png"
                 heroes={[
                     H('Traqueuse', 'traqueuse.png'),
@@ -219,7 +214,7 @@ export function ChasseAuxMonstresContent() {
 
             <MonsterPanel
                 name="Gargantua"
-                description="Fort contre le physique. Composition IGG pour les niveaux 4–5."
+                description="Fort contre le physique."
                 monsterImage="/monsters/gargantua.png"
                 heroes={[
                     H('Incinératrice', 'incineratrice.png'),
@@ -232,7 +227,7 @@ export function ChasseAuxMonstresContent() {
 
             <MonsterPanel
                 name="Ailes-de-givre"
-                description="Fort contre la magie. Composition IGG pour les niveaux 4–5."
+                description="Fort contre la magie."
                 monsterImage="/monsters/ailes-de-givre.png"
                 heroes={[
                     H('Tueur de Démons', 'tueur-de-demons.png'),
@@ -245,7 +240,7 @@ export function ChasseAuxMonstresContent() {
 
             <MonsterPanel
                 name="Drider de l'Enfer"
-                description="Fort contre la magie et le physique. Composition IGG pour les niveaux 4–5."
+                description="Fort contre la magie et le physique."
                 monsterImage="/monsters/drider-enfer.png"
                 heroes={[
                     H('Archère Funeste', 'archere-funeste.png'),
@@ -258,7 +253,7 @@ export function ChasseAuxMonstresContent() {
 
             <MonsterPanel
                 name="Bête des Neiges"
-                description="Fort contre la magie. Composition IGG pour les niveaux 4–5."
+                description="Fort contre la magie."
                 monsterImage="/monsters/bete-des-neiges.png"
                 heroes={[
                     H('Tueur de Démons', 'tueur-de-demons.png'),
@@ -271,7 +266,7 @@ export function ChasseAuxMonstresContent() {
 
             <MonsterPanel
                 name="Titan des Marais"
-                description="Fort contre le physique. Composition IGG pour les niveaux 4–5."
+                description="Fort contre le physique."
                 monsterImage="/monsters/titan-des-marais.png"
                 heroes={[
                     H('Incinératrice', 'incineratrice.png'),
@@ -297,7 +292,7 @@ export function ChasseAuxMonstresContent() {
 
             <MonsterPanel
                 name="Nocéros"
-                description="Fort contre le physique. Composition IGG pour les niveaux 4–5."
+                description="Fort contre le physique."
                 monsterImage="/monsters/noceros.png"
                 heroes={[
                     H('Incinératrice', 'incineratrice.png'),
@@ -323,7 +318,7 @@ export function ChasseAuxMonstresContent() {
 
             <MonsterPanel
                 name="Ailes Noires"
-                description="Fort contre la magie. Composition IGG pour les niveaux 4–5."
+                description="Fort contre la magie."
                 monsterImage="/monsters/ailes-noires.png"
                 heroes={[
                     H('Chevalier Rose', 'chevalier-rose.png'),
@@ -336,7 +331,7 @@ export function ChasseAuxMonstresContent() {
 
             <MonsterPanel
                 name="La Faucheuse"
-                description="Fort contre la magie. Composition IGG pour les niveaux 4–5."
+                description="Fort contre la magie."
                 monsterImage="/monsters/la-faucheuse.png"
                 heroes={[
                     H('Chevalier Rose', 'chevalier-rose.png'),
@@ -349,7 +344,7 @@ export function ChasseAuxMonstresContent() {
 
             <MonsterPanel
                 name="Golem Antique"
-                description="Fort contre le physique. Composition IGG pour les niveaux 4–5."
+                description="Fort contre le physique."
                 monsterImage="/monsters/golem-antique.png"
                 heroes={[
                     H('Incinératrice', 'incineratrice.png'),
@@ -362,7 +357,7 @@ export function ChasseAuxMonstresContent() {
 
             <MonsterPanel
                 name="Chaman Vaudou"
-                description="Fort contre la magie. Composition IGG pour les niveaux 4–5."
+                description="Fort contre la magie."
                 monsterImage="/monsters/chaman-vaudou.png"
                 heroes={[
                     H('Traqueuse', 'traqueuse.png'),
