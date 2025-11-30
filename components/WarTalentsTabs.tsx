@@ -47,17 +47,16 @@ export function WarTalentsTabs({ builds }: WarTalentsTabsProps) {
                             <div className="absolute inset-0 flex items-center justify-center text-slate-600 bg-slate-900">
                                 <span className="text-xs text-center px-4">
                                     Capture {activeBuild.name}<br />
-                                    (Place {activeBuild.imagePath} here)
+                                    (Placez {activeBuild.imagePath} ici)
                                 </span>
                             </div>
-                            {/* Uncomment when images are available
-              <Image
-                src={activeBuild.imagePath}
-                alt={`Talents ${activeBuild.name}`}
-                fill
-                className="object-cover"
-              />
-              */}
+                            <Image
+                                src={activeBuild.imagePath}
+                                alt={`Talents ${activeBuild.name}`}
+                                fill
+                                className="object-cover"
+                            />
+
                         </div>
 
                         {activeBuild.targetStats && (

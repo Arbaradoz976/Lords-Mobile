@@ -32,9 +32,6 @@ export function TalentsPaixCombatContent() {
             </ul>
 
             <h2>Principes généraux (communs à tous les builds guerre)</h2>
-            <p>
-                Inspiré de MarksAngryReview + LordsMobilePro :
-            </p>
             <ol>
                 <li>
                     <strong>Priorité stats</strong> : ATK &gt; HP &gt; DEF. Tu maxes
@@ -44,8 +41,7 @@ export function TalentsPaixCombatContent() {
                 </li>
                 <li>
                     <strong>Talents à éviter (sauf cas spéciaux)</strong> : Trap Building / Trap
-                    Offense / Siege Engine Offense (quasiment aucun intérêt en jeu de guerre
-                    moderne). Sur la branche éco, ne pousse <em>Food Production</em> que si
+                    Offense / Siege Engine Offense (quasiment aucun intérêt). Sur la branche éco, ne pousse <em>Food Production</em> que si
                     c&apos;est vraiment ton focus (farm).
                 </li>
                 <li>
@@ -57,10 +53,10 @@ export function TalentsPaixCombatContent() {
             </ol>
 
             {/* Bloc 2 - Talents Économie */}
-            <h2>Set Économie (recherche / bâtiment / ressources)</h2>
+            <h2>Set Paix (recherche / bâtiment / entrainement)</h2>
             <p>
                 Objectif : accélérer <strong>construction + recherche</strong> et booster{' '}
-                <strong>1 ressource principale</strong>.
+                <strong>la vitesse d'entrainement</strong>.
             </p>
             {economyBuild && <TalentSetPanel build={economyBuild} />}
 
@@ -71,11 +67,10 @@ export function TalentsPaixCombatContent() {
                 <strong>Inf</strong>, <strong>Cav</strong> et <strong>Dist</strong> (blasts).
             </p>
             <p>
-                Les 3 blasts s&apos;appuient sur le guide LordsMobilePro : chaque set donne
+                Les 3 blasts s&apos;ont des exemples : chaque set donne
                 environ <strong>+70% ATK</strong> sur le type principal,{' '}
                 <strong>+5% Army ATK</strong> et <strong>+100% HP/DEF d&apos;armée</strong>{' '}
-                uniquement via talents, le reste des points allant dans{' '}
-                <em>Training Speed II</em> pour soigner / former plus vite.
+                uniquement via talents.
             </p>
 
             <WarTalentsTabs builds={warBuilds} />

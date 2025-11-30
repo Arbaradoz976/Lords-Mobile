@@ -4,6 +4,9 @@ import Image from 'next/image';
 import type { GuideCategory } from '@/data/guides';
 import { guides } from '@/data/guides';
 import { ChasseAuxMonstresContent } from './content/chasse-aux-monstres';
+import { TalentsPaixCombatContent } from './content/talents-paix-combat';
+import { SombresNidsContent } from './content/sombres-nids';
+import { StagesHerosContent } from './content/stages-heros';
 
 type Params = {
     category: GuideCategory;
@@ -61,6 +64,12 @@ export default async function GuideDetailPage({ params }: { params: Promise<Para
             {/* Guide Content - Conditional rendering based on slug */}
             {guide.slug === 'chasse-aux-monstres' ? (
                 <ChasseAuxMonstresContent />
+            ) : guide.slug === 'talents-paix-combat' ? (
+                <TalentsPaixCombatContent />
+            ) : guide.slug === 'sombres-nids' ? (
+                <SombresNidsContent />
+            ) : guide.slug === 'stages-heros' ? (
+                <StagesHerosContent />
             ) : (
                 <article className="prose prose-invert max-w-none prose-headings:text-slate-50 prose-p:text-slate-200 prose-li:text-slate-200">
                     <h2>Introduction</h2>
