@@ -1,12 +1,7 @@
 // app/guides/[category]/[slug]/content/chasse-aux-monstres.tsx
 import Image from 'next/image';
 import { MonsterPanel } from '@/components/MonsterPanel';
-
-// Helper pour créer les objets héros
-const H = (name: string, file: string) => ({
-    name,
-    image: `/heroes/${file}`,
-});
+import { monsterHunts } from '@/data/monsterHunt';
 
 export function ChasseAuxMonstresContent() {
     return (
@@ -122,265 +117,45 @@ export function ChasseAuxMonstresContent() {
             </ul>
 
             <p className="text-sm text-slate-400">
-                💡 Rappel important : ce guide propose des compositions en temps qu'exemples.
+                💡 Rappel important : ce guide propose des compositions en temps qu&apos;exemples.
                 Adapte toujours en fonction de ton niveau de héros (rang, grade, niveau
                 d&apos;équipement).
             </p>
 
-            <h2>Compositions F2P conseillées par monstre</h2>
+            <h2>Compositions conseillées par monstre</h2>
             <p>
-                Voici les compositions officielles du guide IGG "Chasse du monstre" pour les
-                niveaux 4–5 (ou 1–5 quand précisé). Ces compos F2P sont optimisées selon
-                les résistances de chaque monstre.
+                Voici les compositions  pour chaque monstre. 
+                Chaque monstre dispose d&apos;une composition F2P (gratuite) et
+                souvent d&apos;une composition P2P optimisée.
             </p>
 
-            <MonsterPanel
-                name="Reine des Abeilles"
-                description="Fort contre la magie."
-                monsterImage="/monsters/reine-abeille.png"
-                heroes={[
-                    H('Tueur de Démons', 'tueur-de-demons.png'),
-                    H('Éclair Pourpre', 'eclair-pourpre.png'),
-                    H('Traqueuse', 'traqueuse.png'),
-                    H('Oiseau Noir', 'oiseau-noir.png'),
-                    H('Femme Fatale', 'femme-fatale.png'),
-                ]}
-            />
+            {monsterHunts.map((monster) => {
+                const resistanceText =
+                    monster.resistance === 'physical' ? 'Fort contre le physique.' :
+                        monster.resistance === 'magic' ? 'Fort contre la magie.' :
+                            'Fort contre la magie et le physique.';
 
-            <MonsterPanel
-                name="Sabrecroc"
-                description="Fort contre le physique. "
-                monsterImage="/monsters/sabrecroc.png"
-                heroes={[
-                    H('Incinératrice', 'incineratrice.png'),
-                    H('Élémentaliste', 'elementaliste.png'),
-                    H('Sorcière du Rêve', 'sorciere-du-reve.png'),
-                    H('Petite Succube', 'petite-succube.png'),
-                    H('Renard Ouragan', 'renard-ouragan.png'),
-                ]}
-            />
-
-            <MonsterPanel
-                name="Griffon"
-                description="Fort contre la magie et le physique."
-                monsterImage="/monsters/griffon.png"
-                heroes={[
-                    H('Femme Fatale', 'femme-fatale.png'),
-                    H('Tueur de Démons', 'tueur-de-demons.png'),
-                    H('Éclair Pourpre', 'eclair-pourpre.png'),
-                    H('Oiseau Noir', 'oiseau-noir.png'),
-                    H('Archère Funeste', 'archere-funeste.png'),
-                ]}
-            />
-
-            <MonsterPanel
-                name="Mécha Troyen"
-                description="Fort contre le physique. Composition IGG pour tous les niveaux (1–5)."
-                monsterImage="/monsters/mecha-troyen.png"
-                heroes={[
-                    H('Incinératrice', 'incineratrice.png'),
-                    H('Élémentaliste', 'elementaliste.png'),
-                    H('Sorcière du Rêve', 'sorciere-du-reve.png'),
-                    H('Petite Succube', 'petite-succube.png'),
-                    H('Renard Ouragan', 'renard-ouragan.png'),
-                ]}
-            />
-
-            <MonsterPanel
-                name="Wyrm de Jade"
-                description="Fort contre le physique."
-                monsterImage="/monsters/wyrm-de-jade.png"
-                heroes={[
-                    H('Incinératrice', 'incineratrice.png'),
-                    H('Élémentaliste', 'elementaliste.png'),
-                    H('Sorcière du Rêve', 'sorciere-du-reve.png'),
-                    H('Petite Succube', 'petite-succube.png'),
-                    H('Enfant de Lumière', 'enfant-de-lumiere.png'),
-                ]}
-            />
-
-            <MonsterPanel
-                name="Morfalange"
-                description="Fort contre la magie."
-                monsterImage="/monsters/morfalange.png"
-                heroes={[
-                    H('Traqueuse', 'traqueuse.png'),
-                    H('Tueur de Démons', 'tueur-de-demons.png'),
-                    H('Éclair Pourpre', 'eclair-pourpre.png'),
-                    H('Oiseau Noir', 'oiseau-noir.png'),
-                    H('Femme Fatale', 'femme-fatale.png'),
-                ]}
-            />
-
-            <MonsterPanel
-                name="Gargantua"
-                description="Fort contre le physique."
-                monsterImage="/monsters/gargantua.png"
-                heroes={[
-                    H('Incinératrice', 'incineratrice.png'),
-                    H('Élémentaliste', 'elementaliste.png'),
-                    H('Sorcière du Rêve', 'sorciere-du-reve.png'),
-                    H('Petite Succube', 'petite-succube.png'),
-                    H('Enfant de Lumière', 'enfant-de-lumiere.png'),
-                ]}
-            />
-
-            <MonsterPanel
-                name="Ailes-de-givre"
-                description="Fort contre la magie."
-                monsterImage="/monsters/ailes-de-givre.png"
-                heroes={[
-                    H('Tueur de Démons', 'tueur-de-demons.png'),
-                    H('Éclair Pourpre', 'eclair-pourpre.png'),
-                    H('Oiseau Noir', 'oiseau-noir.png'),
-                    H('Archère Funeste', 'archere-funeste.png'),
-                    H('Femme Fatale', 'femme-fatale.png'),
-                ]}
-            />
-
-            <MonsterPanel
-                name="Drider de l'Enfer"
-                description="Fort contre la magie et le physique."
-                monsterImage="/monsters/drider-enfer.png"
-                heroes={[
-                    H('Archère Funeste', 'archere-funeste.png'),
-                    H('Tueur de Démons', 'tueur-de-demons.png'),
-                    H('Éclair Pourpre', 'eclair-pourpre.png'),
-                    H('Oiseau Noir', 'oiseau-noir.png'),
-                    H('Femme Fatale', 'femme-fatale.png'),
-                ]}
-            />
-
-            <MonsterPanel
-                name="Bête des Neiges"
-                description="Fort contre la magie."
-                monsterImage="/monsters/bete-des-neiges.png"
-                heroes={[
-                    H('Tueur de Démons', 'tueur-de-demons.png'),
-                    H('Femme Fatale', 'femme-fatale.png'),
-                    H('Éclair Pourpre', 'eclair-pourpre.png'),
-                    H('Oiseau Noir', 'oiseau-noir.png'),
-                    H('Archère Funeste', 'archere-funeste.png'),
-                ]}
-            />
-
-            <MonsterPanel
-                name="Titan des Marais"
-                description="Fort contre le physique."
-                monsterImage="/monsters/titan-des-marais.png"
-                heroes={[
-                    H('Incinératrice', 'incineratrice.png'),
-                    H('Élémentaliste', 'elementaliste.png'),
-                    H('Reine des Neiges', 'reine-des-neiges.png'),
-                    H('Prima Donna', 'prima-donna.png'),
-                    H('Renard Ouragan', 'renard-ouragan.png'),
-                ]}
-            />
-
-            <MonsterPanel
-                name="Épinator"
-                description="Fort contre la magie. Composition IGG pour les niveaux 1–5."
-                monsterImage="/monsters/epinator.png"
-                heroes={[
-                    H('Traqueuse', 'traqueuse.png'),
-                    H('Tueur de Démons', 'tueur-de-demons.png'),
-                    H('Éclair Pourpre', 'eclair-pourpre.png'),
-                    H('Oiseau Noir', 'oiseau-noir.png'),
-                    H('Archère Funeste', 'archere-funeste.png'),
-                ]}
-            />
-
-            <MonsterPanel
-                name="Nocéros"
-                description="Fort contre le physique."
-                monsterImage="/monsters/noceros.png"
-                heroes={[
-                    H('Incinératrice', 'incineratrice.png'),
-                    H('Élémentaliste', 'elementaliste.png'),
-                    H('Sorcière du Rêve', 'sorciere-du-reve.png'),
-                    H('Petite Succube', 'petite-succube.png'),
-                    H('Prêtresse Aurora', 'pretresse-aurora.png'),
-                ]}
-            />
-
-            <MonsterPanel
-                name="Méga-larve"
-                description="Fort contre le physique. Composition IGG valable pour tous les niveaux."
-                monsterImage="/monsters/mega-larve.png"
-                heroes={[
-                    H('Incinératrice', 'incineratrice.png'),
-                    H('Élémentaliste', 'elementaliste.png'),
-                    H('Sorcière du Rêve', 'sorciere-du-reve.png'),
-                    H('Petite Succube', 'petite-succube.png'),
-                    H('Renard Ouragan', 'renard-ouragan.png'),
-                ]}
-            />
-
-            <MonsterPanel
-                name="Ailes Noires"
-                description="Fort contre la magie."
-                monsterImage="/monsters/ailes-noires.png"
-                heroes={[
-                    H('Chevalier Rose', 'chevalier-rose.png'),
-                    H('Tueur de Démons', 'tueur-de-demons.png'),
-                    H('Éclair Pourpre', 'eclair-pourpre.png'),
-                    H('Oiseau Noir', 'oiseau-noir.png'),
-                    H('Archère Funeste', 'archere-funeste.png'),
-                ]}
-            />
-
-            <MonsterPanel
-                name="La Faucheuse"
-                description="Fort contre la magie."
-                monsterImage="/monsters/la-faucheuse.png"
-                heroes={[
-                    H('Chevalier Rose', 'chevalier-rose.png'),
-                    H('Tueur de Démons', 'tueur-de-demons.png'),
-                    H('Éclair Pourpre', 'eclair-pourpre.png'),
-                    H('Oiseau Noir', 'oiseau-noir.png'),
-                    H('Archère Funeste', 'archere-funeste.png'),
-                ]}
-            />
-
-            <MonsterPanel
-                name="Golem Antique"
-                description="Fort contre le physique."
-                monsterImage="/monsters/golem-antique.png"
-                heroes={[
-                    H('Incinératrice', 'incineratrice.png'),
-                    H('Élémentaliste', 'elementaliste.png'),
-                    H('Sorcière du Rêve', 'sorciere-du-reve.png'),
-                    H('Petite Succube', 'petite-succube.png'),
-                    H('Prêtresse Aurora', 'pretresse-aurora.png'),
-                ]}
-            />
-
-            <MonsterPanel
-                name="Chaman Vaudou"
-                description="Fort contre la magie."
-                monsterImage="/monsters/chaman-vaudou.png"
-                heroes={[
-                    H('Traqueuse', 'traqueuse.png'),
-                    H('Tueur de Démons', 'tueur-de-demons.png'),
-                    H('Guide Éthéré', 'guide-ethere.png'),
-                    H('Oiseau Noir', 'oiseau-noir.png'),
-                    H('Chef', 'chef.png'),
-                ]}
-            />
+                return (
+                    <MonsterPanel
+                        key={monster.id}
+                        monster={monster}
+                        imageSrc={`/monsters/${monster.slug}.png`}
+                        description={resistanceText}
+                    />
+                );
+            })}
 
             <p className="mt-3 text-xs text-slate-400">
-                Ces compositions sont des exemples F2P. Tu peux remplacer un héros par un
-                autre du même type (physique/magique) si tu l&apos;as mieux monté.
+                Ces compositions F2P/P2P sont des exemples. Adapte selon tes héros disponibles.
             </p>
 
             <h2>À retenir</h2>
             <ul>
                 <li>
-                    Investis dans les recherches de chasse, un set de chasseur dédié et des
-                    talents adaptés.
+                    Investis dans les recherches de chasse, un set de chasseur dédié.
                 </li>
                 <li>
-                    Utilise un noyau de héros F2P solides (Tueur de Démons, Traqueuse,
+                    Utilise une base de héros F2P solides (Tueur de Démons, Traqueuse,
                     Incinératrice, Élémentaliste, etc.) et adapte selon leurs niveaux.
                 </li>
                 <li>
@@ -388,12 +163,6 @@ export function ChasseAuxMonstresContent() {
                     farmer.
                 </li>
             </ul>
-
-            <p className="text-sm text-slate-400">
-                Ce guide sera complété au fur et à mesure avec des exemples d&apos;énergie,
-                de dégâts et des compositions alternatives. Tu peux déjà l&apos;utiliser
-                comme base pour documenter les choix de ton équipe ou de ta guilde.
-            </p>
         </article>
     );
 }
