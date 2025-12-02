@@ -1,6 +1,7 @@
 import React from 'react';
-import Image from 'next/image';
 import { getHeroImage, getHeroNameFr } from '@/data/heroes';
+import { StageTable } from '@/components/StageTable';
+import { eliteStages, challengeStages } from '@/data/heroStages';
 
 type HeroChipProps = {
     name: string;
@@ -12,11 +13,9 @@ function HeroChip({ name }: HeroChipProps) {
     return (
         <div className="flex items-center gap-1 rounded-xl border border-amber-300/60 bg-slate-900/90 px-2 py-1 shadow-md">
             <div className="h-9 w-9 overflow-hidden rounded-lg flex-shrink-0">
-                <Image
+                <img
                     src={getHeroImage(name)}
                     alt={nameFr}
-                    width={36}
-                    height={36}
                     className="h-full w-full object-cover"
                 />
             </div>
@@ -123,7 +122,7 @@ export function StagesHerosContent() {
 
             <h2>3. Héros à monter en priorité pour les stages</h2>
             <p>
-                D'après les guides IGG et les joueurs expérimentés, on retrouve toujours les mêmes "stars" F2P pour les stages.
+                On retrouve toujours les mêmes "stars" F2P pour les stages.
                 Si tu ne sais pas quels héros monter, concentre-toi d'abord sur ceux-là :
                 ils servent <strong>en Stages, en Colisée et en Darknest</strong>.
             </p>
@@ -196,7 +195,7 @@ export function StagesHerosContent() {
 
             <h2>4. Recommandations par chapitre (Elite 5–8)</h2>
             <p>
-                Les pages officielles IGG et les tableaux HephBot montrent que les compos tournent autour des mêmes héros,
+                Les compos tournent autour des mêmes héros,
                 avec quelques variantes selon le boss. Voici des équipes "passe-partout" pour chaque chapitre Elite.
             </p>
 
@@ -302,7 +301,7 @@ export function StagesHerosContent() {
                     Chapitre 8 – <em>Goddess' Trial</em>
                 </h3>
                 <p className="text-slate-300">
-                    Les compos IGG tournent autour du trio Prima Donna + Rose Knight + Tracker.
+                    Les compos tournent souvent autour du trio Prima Donna + Rose Knight + Tracker.
                 </p>
 
                 <div className="mt-4 space-y-3">
@@ -383,105 +382,41 @@ export function StagesHerosContent() {
                 </p>
             </blockquote>
 
-            <h2>6. Tableaux HephBot par mode</h2>
+            <h2>6. Tableaux de compositions par mode</h2>
             <p>
                 Pour chaque stage spécifique, tu peux consulter les tableaux détaillés ci-dessous.
-                Ils montrent les compositions optimales par stage, l'ordre de placement des héros et le boss ciblé.
+                Ils montrent les compositions optimales par stage avec l'ordre de placement des héros.
             </p>
 
-            {/* Normal Mode Chapters */}
-            <h3 className="mt-8">Mode Normal (Chapitres 1–8)</h3>
-            <div className="space-y-6">
-                {[1, 2, 3, 4, 5, 6, 7, 8].map((chapter) => (
-                    <div key={`normal-${chapter}`} className="rounded-lg border border-slate-700 bg-slate-900/50 p-4">
-                        <h4 className="mt-0 text-emerald-400">Chapitre {chapter} Normal</h4>
-                        <div className="grid gap-4 md:grid-cols-2">
-                            <div>
-                                <p className="text-sm font-semibold text-slate-400 mb-2">Stages {chapter}-1 → {chapter}-9</p>
-                                <Image
-                                    src={`/stages/normal/chapter-${chapter}-left.png`}
-                                    alt={`Chapitre ${chapter} Normal - Stages 1-9`}
-                                    width={600}
-                                    height={800}
-                                    className="w-full h-auto rounded border border-slate-700"
-                                />
-                            </div>
-                            <div>
-                                <p className="text-sm font-semibold text-slate-400 mb-2">Stages {chapter}-10 → {chapter}-18</p>
-                                <Image
-                                    src={`/stages/normal/chapter-${chapter}-right.png`}
-                                    alt={`Chapitre ${chapter} Normal - Stages 10-18`}
-                                    width={600}
-                                    height={800}
-                                    className="w-full h-auto rounded border border-slate-700"
-                                />
-                            </div>
-                        </div>
-                    </div>
-                ))}
-            </div>
-
             {/* Elite Mode Chapters */}
-            <h3 className="mt-8">Mode Elite (Chapitres 1–8)</h3>
-            <div className="space-y-6">
+            <h3 className="mt-8">Mode Elite (Boss Stages)</h3>
+            <p className="text-slate-400 text-sm mb-4">
+                6 boss stages par chapitre : 3, 6, 9, 12, 15, 18
+            </p>
+            <div className="space-y-4">
                 {[1, 2, 3, 4, 5, 6, 7, 8].map((chapter) => (
-                    <div key={`elite-${chapter}`} className="rounded-lg border border-blue-600/40 bg-blue-900/20 p-4">
-                        <h4 className="mt-0 text-blue-400">Chapitre {chapter} Elite</h4>
-                        <div className="grid gap-4 md:grid-cols-2">
-                            <div>
-                                <p className="text-sm font-semibold text-slate-400 mb-2">Stages {chapter}-3 → {chapter}-9</p>
-                                <Image
-                                    src={`/stages/elite/chapter-${chapter}-left.png`}
-                                    alt={`Chapitre ${chapter} Elite - Boss stages 3/6/9`}
-                                    width={600}
-                                    height={800}
-                                    className="w-full h-auto rounded border border-blue-700"
-                                />
-                            </div>
-                            <div>
-                                <p className="text-sm font-semibold text-slate-400 mb-2">Stages {chapter}-12 → {chapter}-18</p>
-                                <Image
-                                    src={`/stages/elite/chapter-${chapter}-right.png`}
-                                    alt={`Chapitre ${chapter} Elite - Boss stages 12/15/18`}
-                                    width={600}
-                                    height={800}
-                                    className="w-full h-auto rounded border border-blue-700"
-                                />
-                            </div>
-                        </div>
-                    </div>
+                    <StageTable
+                        key={`elite-${chapter}`}
+                        chapterNumber={chapter}
+                        stages={eliteStages[chapter]}
+                        mode="elite"
+                    />
                 ))}
             </div>
 
             {/* Challenge Mode Chapters */}
-            <h3 className="mt-8">Mode Challenge (Chapitres 1–8)</h3>
-            <div className="space-y-6">
+            <h3 className="mt-8">Mode Challenge (Tous les stages)</h3>
+            <p className="text-slate-400 text-sm mb-4">
+                18 stages par chapitre avec contraintes spécifiques
+            </p>
+            <div className="space-y-4">
                 {[1, 2, 3, 4, 5, 6, 7, 8].map((chapter) => (
-                    <div key={`challenge-${chapter}`} className="rounded-lg border border-purple-600/40 bg-purple-900/20 p-4">
-                        <h4 className="mt-0 text-purple-400">Chapitre {chapter} Challenge</h4>
-                        <div className="grid gap-4 md:grid-cols-2">
-                            <div>
-                                <p className="text-sm font-semibold text-slate-400 mb-2">Stages {chapter}-1 → {chapter}-9</p>
-                                <Image
-                                    src={`/stages/challenge/chapter-${chapter}-left.png`}
-                                    alt={`Chapitre ${chapter} Challenge - Stages 1-9`}
-                                    width={600}
-                                    height={800}
-                                    className="w-full h-auto rounded border border-purple-700"
-                                />
-                            </div>
-                            <div>
-                                <p className="text-sm font-semibold text-slate-400 mb-2">Stages {chapter}-10 → {chapter}-18</p>
-                                <Image
-                                    src={`/stages/challenge/chapter-${chapter}-right.png`}
-                                    alt={`Chapitre ${chapter} Challenge - Stages 10-18`}
-                                    width={600}
-                                    height={800}
-                                    className="w-full h-auto rounded border border-purple-700"
-                                />
-                            </div>
-                        </div>
-                    </div>
+                    <StageTable
+                        key={`challenge-${chapter}`}
+                        chapterNumber={chapter}
+                        stages={challengeStages[chapter]}
+                        mode="challenge"
+                    />
                 ))}
             </div>
 
@@ -547,8 +482,8 @@ export function StagesHerosContent() {
                 <h3 className="mt-0 text-amber-300">🎉 Bon courage !</h3>
                 <p className="text-slate-200">
                     Les stages de héros demandent de la patience et de la stratégie, mais les récompenses en valent
-                    largement la peine. N'hésite pas à expérimenter avec différentes compositions et à consulter
-                    les tableaux HephBot pour des recommandations spécifiques à chaque stage.
+                    largement la peine. N'hésite pas à expérimenter avec différentes compositions et à remplir
+                    les tableaux ci-dessus au fur et à mesure de tes découvertes.
                 </p>
                 <p className="text-slate-200 mb-0">
                     Concentre-toi d'abord sur <strong>monter tes héros F2P prioritaires</strong> (Rose Knight,
